@@ -1,5 +1,5 @@
 /**
- * NOLE SHOP | Google Apps Script Database, Auto-Delivery & Backend API
+ * NOLE STORE | Google Apps Script Database, Auto-Delivery & Backend API
  * 
  * FITUR LENGKAP:
  * 1. Setup Database Otomatis (Products + Orders)
@@ -29,7 +29,7 @@ function setupInitialDatabase() {
       "AI video creation and creative tools with 5,400 monthly credits",
       "https://i.ibb.co.com/zhD7HyJQ/hgflds.png",
       false,
-      "Login Portal: https://higgsfield.ai | Akun: hgfld-max@noleshop.com | Pass: HiggsNole#2026 | Catatan: Jangan ubah email utama."
+      "Login Portal: https://higgsfield.ai | Akun: hgfld-max@nolestore.com | Pass: HiggsNole#2026 | Catatan: Jangan ubah email utama."
     ],
     [
       "claude-max",
@@ -41,7 +41,7 @@ function setupInitialDatabase() {
       "Advanced AI assistance for demanding workflows",
       "https://i.ibb.co.com/h18VgjqT/Chat-GPT-Image-Sep-18-2026-07-39-51-PM.png",
       false,
-      "Login Portal: https://claude.ai | Akun: claude-pro@noleshop.com | Pass: ClaudeNole#2026 | Catatan: Dedicated profile aktif."
+      "Login Portal: https://claude.ai | Akun: claude-pro@nolestore.com | Pass: ClaudeNole#2026 | Catatan: Dedicated profile aktif."
     ],
     [
       "runway-pro",
@@ -53,7 +53,7 @@ function setupInitialDatabase() {
       "Professional AI video creation at only $14/month (regularly $28)",
       "https://i.ibb.co.com/hRV4LT0m/Chat-GPT-Image-Sep-18-2026-07-45-11-PM.png",
       false,
-      "Login Portal: https://runwayml.com | Akun: runway-pro@noleshop.com | Pass: RunwayNole#2026"
+      "Login Portal: https://runwayml.com | Akun: runway-pro@nolestore.com | Pass: RunwayNole#2026"
     ],
     [
       "notion-ai-business",
@@ -65,7 +65,7 @@ function setupInitialDatabase() {
       "AI-powered productivity for teams",
       "https://i.ibb.co.com/G4w4T8r0/Chat-GPT-Image-Sep-18-2026-07-47-11-PM.png",
       false,
-      "Invite Code / Link: https://notion.so/invite/noleshop-workspace-biz | Akses Notion AI Aktif 12 Bulan"
+      "Invite Code / Link: https://notion.so/invite/nolestore-workspace-biz | Akses Notion AI Aktif 12 Bulan"
     ],
     [
       "supergrok-heavy",
@@ -77,7 +77,7 @@ function setupInitialDatabase() {
       "Advanced AI access for everyday tasks",
       "https://i.ibb.co.com/RkPrZMjL/Chat-GPT-Image-Sep-18-2026-07-49-15-PM.png",
       false,
-      "Login Portal: https://x.ai / https://twitter.com | Akun: grok-heavy@noleshop.com | Pass: GrokNole#2026"
+      "Login Portal: https://x.ai / https://twitter.com | Akun: grok-heavy@nolestore.com | Pass: GrokNole#2026"
     ],
     [
       "chatgpt-plus",
@@ -89,7 +89,7 @@ function setupInitialDatabase() {
       "Premium AI access for work and creativity with full warranty",
       "https://i.ibb.co.com/ZRR2ng9S/Chat-GPT-Image-Sep-18-2026-07-42-20-PM.png",
       false,
-      "Login Portal: https://chatgpt.com | Akun: gptpro-20x@noleshop.com | Pass: GptNole#2026 | Garansi 6 Bulan aktif."
+      "Login Portal: https://chatgpt.com | Akun: gptpro-20x@nolestore.com | Pass: GptNole#2026 | Garansi 6 Bulan aktif."
     ],
     [
       "hbo-max",
@@ -98,22 +98,22 @@ function setupInitialDatabase() {
       "12 Month",
       45,
       30,
-      "Premium entertainment streaming access",
-      "https://i.ibb.co.com/r2YnHSWh/Chat-GPT-Image-Sep-18-2026-07-50-06-PM.png",
+      "Complete entertainment streaming access",
+      "https://i.ibb.co.com/84j7qG9w/Chat-GPT-Image-Sep-18-2026-07-52-12-PM.png",
       false,
-      "Login Portal: https://max.com | Akun: hbomax-premium@noleshop.com | Pass: MaxNole#2026 | Profile: Slot 1 (PIN: 1234)"
+      "Login Portal: https://max.com | Akun: hbomax-premium@nolestore.com | Pass: MaxNole#2026 | Profile: Slot 1 (PIN: 1234)"
     ],
     [
-      "gemini-ai-pro",
-      "Google AI Ultra",
+      "google-one",
+      "Google One Ultra AI",
       "productivity",
-      "6 Month • 25 Credits/Month",
-      40,
+      "12 Month",
+      85,
       15,
-      "25 Credits/Month with advanced AI tools for productivity and creativity",
-      "https://i.ibb.co.com/QFVgMSTz/Chat-GPT-Image-Sep-18-2026-07-51-43-PM.png",
-      true,
-      "Login Portal: https://gemini.google.com | Akun: google-ultra@noleshop.com | Pass: GeminiNole#2026"
+      "Cloud storage and AI capabilities for demanding projects",
+      "https://i.ibb.co.com/mrgj7z85/Chat-GPT-Image-Sep-18-2026-07-54-47-PM.png",
+      false,
+      "Login Portal: https://gemini.google.com | Akun: google-ultra@nolestore.com | Pass: GeminiNole#2026"
     ]
   ];
 
@@ -357,11 +357,11 @@ function doPost(e) {
     // 4. SEND ORDER RECEIVED CONFIRMATION EMAIL (Pending Verification)
     if (postData.email && postData.email.includes("@")) {
       try {
-        const emailSubject = `[NOLE SHOP] Order #${orderId} Received (Pending Payment Verification)`;
+        const emailSubject = `[NOLE STORE] Order #${orderId} Received (Pending Payment Verification)`;
         const emailHtmlBody = `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1d1d1f; background: #ffffff;">
             <div style="text-align: center; margin-bottom: 24px;">
-              <h1 style="font-size: 24px; font-weight: bold; margin: 0; color: #1d1d1f;">NOLE SHOP</h1>
+              <h1 style="font-size: 24px; font-weight: bold; margin: 0; color: #1d1d1f;">NOLE STORE</h1>
               <p style="font-size: 13px; color: #6e6e73; margin-top: 4px;">Premium Digital Products</p>
             </div>
             
@@ -371,7 +371,7 @@ function doPost(e) {
             </div>
 
             <p style="font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-              Hello, thank you for shopping at NOLE SHOP. Your transfer transaction is currently being verified on the blockchain.
+              Hello, thank you for shopping at NOLE STORE. Your transfer transaction is currently being verified on the blockchain.
             </p>
 
             <div style="background-color: #f7f7f9; border-radius: 12px; padding: 16px; margin-bottom: 20px; border: 1px solid #e5e5e7; font-size: 13px;">
@@ -387,7 +387,7 @@ function doPost(e) {
             </div>
 
             <div style="text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #f0f0f2; font-size: 11px; color: #86868b;">
-              &copy; 2026 NOLE SHOP. All rights reserved.
+              &copy; 2026 NOLE STORE. All rights reserved.
             </div>
           </div>
         `;
@@ -396,7 +396,7 @@ function doPost(e) {
           to: postData.email,
           subject: emailSubject,
           htmlBody: emailHtmlBody,
-          name: "NOLE SHOP"
+          name: "NOLE STORE"
         });
       } catch (errEmail) {
         Logger.log("Email order notification error: " + errEmail);
@@ -424,7 +424,7 @@ function doPost(e) {
 // 4. ADMIN MENU IN GOOGLE SHEETS (1-Click Access Delivery)
 function onOpen() {
   SpreadsheetApp.getUi()
-    .createMenu('🚀 NOLE SHOP ADMIN')
+    .createMenu('🚀 NOLE STORE ADMIN')
     .addItem('✅ Approve & Deliver Access (Selected Row)', 'sendAccessForSelectedOrder')
     .addSeparator()
     .addItem('🔄 Check & Sync Database', 'setupInitialDatabase')
@@ -470,11 +470,11 @@ function sendAccessForSelectedOrder() {
   }
   
   // Send official credentials email to customer
-  const emailSubject = `[NOLE SHOP] Your Digital Product Access (Order #${orderId})`;
+  const emailSubject = `[NOLE STORE] Your Digital Product Access (Order #${orderId})`;
   const emailHtmlBody = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1d1d1f; background: #ffffff;">
       <div style="text-align: center; margin-bottom: 24px;">
-        <h1 style="font-size: 24px; font-weight: bold; margin: 0; color: #1d1d1f;">NOLE SHOP</h1>
+        <h1 style="font-size: 24px; font-weight: bold; margin: 0; color: #1d1d1f;">NOLE STORE</h1>
         <p style="font-size: 13px; color: #6e6e73; margin-top: 4px;">Payment Verified • Official Digital Product Credentials</p>
       </div>
       
@@ -497,7 +497,7 @@ function sendAccessForSelectedOrder() {
       </div>
 
       <div style="text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #f0f0f2; font-size: 11px; color: #86868b;">
-        &copy; 2026 NOLE SHOP. All rights reserved.
+        &copy; 2026 NOLE STORE. All rights reserved.
       </div>
     </div>
   `;
@@ -506,7 +506,7 @@ function sendAccessForSelectedOrder() {
     to: email,
     subject: emailSubject,
     htmlBody: emailHtmlBody,
-    name: "NOLE SHOP"
+    name: "NOLE STORE"
   });
   
   // Update order status to Completed (Delivered)
