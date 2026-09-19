@@ -960,15 +960,10 @@
       </div>
       <div class="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-brand-tertiary">
         <p>&copy; 2026 NOLE SHOP. All rights reserved.</p>
-        <button 
-          onclick="openSheetConfigModal()" 
-          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-surface hover:bg-neutral-200/70 text-brand-secondary hover:text-brand-primary transition-colors text-[11px] font-medium"
-          id="sheet-status-badge"
-          title="Configure Google Sheet Stock integration"
-        >
-          <span class="w-2 h-2 rounded-full bg-neutral-300" id="sheet-status-dot"></span>
-          <span id="sheet-status-label">Google Sheet: Disconnected</span>
-        </button>
+        <div class="flex items-center gap-2 text-[11px] text-brand-secondary">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Verified Instant Digital Delivery</span>
+        </div>
       </div>
     </div>
   </footer>
@@ -1295,67 +1290,7 @@
     </div>
   </div>
 
-  <!-- Google Sheet Stock Database Modal -->
-  <div id="sheet-config-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true" role="dialog">
-    <div class="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity" onclick="closeSheetConfigModal()"></div>
-    <div class="fixed inset-0 overflow-y-auto flex min-h-full items-center justify-center p-3 sm:p-6 py-6">
-      <div class="relative bg-white rounded-[24px] sm:rounded-[28px] shadow-float max-w-lg w-full p-6 sm:p-8 overflow-hidden my-auto border border-black/[0.04]">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h4v2H7zm0 4h4v2H7zm0 4h4v2H7zm6-8h4v2h-4zm0 4h4v2h-4zm0 4h4v2h-4z"/></svg>
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-primary">Google Sheet Stock Sync</h3>
-              <p class="text-[11px] text-brand-secondary">Real-time inventory and order recording</p>
-            </div>
-          </div>
-          <button onclick="closeSheetConfigModal()" aria-label="Close modal" class="w-8 h-8 rounded-full bg-brand-surface hover:bg-neutral-200 flex items-center justify-center text-brand-secondary">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
 
-        <div class="space-y-4 text-xs">
-          <div>
-            <label class="block font-semibold text-brand-primary mb-1">Google Apps Script Web App URL</label>
-            <input 
-              type="url" 
-              id="sheet-url-input" 
-              placeholder="https://script.google.com/macros/s/.../exec" 
-              class="w-full px-3.5 py-2.5 rounded-xl bg-brand-surface border border-neutral-200 text-brand-primary text-xs focus:bg-white focus:outline-none focus:border-brand-primary"
-            >
-            <p class="text-[10px] text-brand-tertiary mt-1">Paste your deployed Google Apps Script URL here.</p>
-          </div>
-
-          <div class="bg-brand-surface p-3.5 rounded-2xl space-y-1.5 text-[11px] text-brand-secondary leading-relaxed border border-neutral-100">
-            <div class="font-semibold text-brand-primary flex items-center gap-1">
-              <span>⚡</span> Quick 1-Minute Setup:
-            </div>
-            <p>1. Open your spreadsheet in Google Sheets ➔ menu <strong>Extensions ➔ Apps Script</strong></p>
-            <p>2. Copy all code from <code class="text-brand-primary font-mono bg-white px-1 py-0.5 rounded border border-neutral-200">google-apps-script.js</code></p>
-            <p>3. Select <code class="text-brand-primary font-mono bg-white px-1 py-0.5 rounded border border-neutral-200">setupInitialDatabase</code> function and click <strong>Run</strong></p>
-            <p>4. Click <strong>Deploy ➔ New deployment (Web app)</strong> ➔ paste URL above!</p>
-          </div>
-
-          <div class="flex items-center gap-2 pt-1">
-            <button 
-              onclick="saveSheetConfig()" 
-              id="save-sheet-btn"
-              class="cta-button flex-1 py-3 rounded-full bg-brand-primary text-white font-semibold text-xs hover:bg-black"
-            >
-              Save & Sync Stock
-            </button>
-            <button 
-              onclick="clearSheetConfig()" 
-              class="px-4 py-3 rounded-full bg-brand-surface text-brand-secondary font-medium text-xs hover:bg-neutral-200"
-            >
-              Reset to Local
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Order Success & Pending Verification Modal (Option A) -->
   <div id="order-success-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true" role="dialog">
@@ -1632,19 +1567,8 @@
       }
     }
 
-    function openSheetConfigModal() {
-      const modal = document.getElementById("sheet-config-modal");
-      const input = document.getElementById("sheet-url-input");
-      if (input) input.value = GOOGLE_SHEET_API_URL;
-      if (modal) modal.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    }
-
-    function closeSheetConfigModal() {
-      const modal = document.getElementById("sheet-config-modal");
-      if (modal) modal.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
+    function openSheetConfigModal() {}
+    function closeSheetConfigModal() {}
 
     function saveSheetConfig() {
       const input = document.getElementById("sheet-url-input");
