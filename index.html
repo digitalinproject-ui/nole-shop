@@ -394,25 +394,25 @@
 
   <main>
     <!-- 2. Hero Section: Motion-style prompt card + Moving ambient gradient -->
-    <section class="relative pt-14 pb-16 md:pt-20 md:pb-24 bg-brand-bg overflow-hidden">
+    <section class="relative pt-10 pb-8 md:pt-14 md:pb-10 bg-brand-bg overflow-hidden">
       <!-- Slowly moving NOLE multicolor ambient glow -->
       <div class="ambient-glow-layer"></div>
 
       <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
         <!-- Step 1: Display Brand & Headline (Strictly 2 lines on PC/Laptop, no trailing periods) -->
-        <div class="hero-enter-1 mb-6">
+        <div class="hero-enter-1 mb-5">
           <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.2]">
             <span class="block apple-heading-gradient md:whitespace-nowrap pb-1.5">Premium digital products</span>
             <span class="block simple-access-gradient font-extrabold tracking-tight pb-1.5 mt-0.5 sm:mt-1">Simple access</span>
           </h1>
-          <p class="hero-enter-2 text-sm sm:text-base md:text-lg text-brand-secondary font-normal max-w-2xl mx-auto leading-relaxed mt-4">
+          <p class="hero-enter-2 text-sm sm:text-base md:text-lg text-brand-secondary font-normal max-w-2xl mx-auto leading-relaxed mt-3">
             Verified digital accounts and subscriptions for AI, video generation, productivity, and streaming with instant setup, direct crypto checkout, and 100% warranty
           </p>
         </div>
 
         <!-- Step 2: Motion-Style Prompt Card (Clean card with bottom action bar) -->
-        <div class="hero-enter-3 max-w-3xl mx-auto mb-7 w-full text-left">
+        <div class="hero-enter-3 max-w-3xl mx-auto w-full text-left">
           <div class="relative rounded-3xl bg-white/95 backdrop-blur-md border border-neutral-200/90 p-4 sm:p-5 shadow-[0_10px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.09)] transition-all">
             
             <!-- Top Input Row with subtle placeholder -->
@@ -471,42 +471,13 @@
             </div>
 
           </div>
-
-          <!-- Quick Trending Tags (Strictly 4 top products, no dashes) -->
-          <div class="flex items-center justify-center flex-wrap gap-2.5 mt-4 text-xs">
-            <button type="button" onclick="quickFilterKeyword('ChatGPT')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-brand-primary border border-neutral-200/80 text-xs font-medium transition-all hover:scale-105 shadow-xs">
-              <span>🔥</span> ChatGPT Pro 20x
-            </button>
-            <button type="button" onclick="quickFilterKeyword('Claude')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-brand-primary border border-neutral-200/80 text-xs font-medium transition-all hover:scale-105 shadow-xs">
-              <span>⚡</span> Claude Max
-            </button>
-            <button type="button" onclick="quickFilterKeyword('Runway')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-brand-primary border border-neutral-200/80 text-xs font-medium transition-all hover:scale-105 shadow-xs">
-              <span>🎬</span> Runway Pro
-            </button>
-            <button type="button" onclick="quickFilterKeyword('Higgsfield')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-brand-primary border border-neutral-200/80 text-xs font-medium transition-all hover:scale-105 shadow-xs">
-              <span>✨</span> Higgsfield Max
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 3: Trust Badges Strip -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 pt-2 text-xs text-brand-secondary">
-          <span class="inline-flex items-center gap-1.5 font-medium px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-neutral-200/50 shadow-xs">
-            <span class="text-emerald-600 font-bold">✓</span> 100% Replacement Warranty
-          </span>
-          <span class="inline-flex items-center gap-1.5 font-medium px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-neutral-200/50 shadow-xs">
-            <span class="text-emerald-600 font-bold">✓</span> Direct Crypto (USDT, SOL, BNB)
-          </span>
-          <span class="inline-flex items-center gap-1.5 font-medium px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-neutral-200/50 shadow-xs">
-            <span class="text-emerald-600 font-bold">✓</span> Automated Email Delivery
-          </span>
         </div>
 
       </div>
     </section>
 
     <!-- 3. Trust / Value Strip: Scroll reveal -->
-    <section class="scroll-reveal bg-white py-7 border-y border-neutral-100">
+    <section class="scroll-reveal bg-white py-5 sm:py-6 border-y border-neutral-100">
       <div class="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
           
