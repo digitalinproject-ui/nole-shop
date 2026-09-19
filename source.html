@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOLE SHOP Premium Digital Products</title>
+  <meta name="description" content="Premium digital products. Simple access. AI tools and digital services, carefully selected and delivered simply.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              bg: '#FFFFFF',
+              surface: '#F5F5F7',
+              surfaceHover: '#EBEBED',
+              primary: '#1D1D1F',
+              secondary: '#6E6E73',
+              tertiary: '#86868B',
+              border: '#E5E5E7',
+              accent: '#0071E3'
+            }
+          },
+          boxShadow: {
+            'subtle': '0 2px 10px rgba(0, 0, 0, 0.03)',
+            'card-lift': '0 16px 36px rgba(0, 0, 0, 0.08)',
+            'float': '0 20px 48px rgba(0, 0, 0, 0.10)',
+            'sheet': '0 -10px 40px rgba(0, 0, 0, 0.09)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background-color: #FFFFFF;
+      color: #1D1D1F;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Skeleton Shimmer for Images */
+    @keyframes skeletonPulse {
+      0%, 100% {
+        background-color: #f1f1f4;
+      }
+      50% {
+        background-color: #e4e4e7;
+      }
+    }
+    .skeleton-box {
+      animation: skeletonPulse 1.8s ease-in-out infinite;
+    }
+
+    /* 1. HERO ENTRANCE SEQUENCES */
+    @keyframes heroFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-enter-1 {
+      animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+    .hero-enter-2 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+    }
+    .hero-enter-3 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+    }
+    .hero-enter-4 {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+    }
+    .hero-enter-5 {
+      animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both;
+    }
+
+    /* 2. SLOWLY MOVING NOLE AMBIENT GRADIENT */
+    @keyframes ambientMotion {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.08);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+    .ambient-glow-layer {
+      position: absolute;
+      top: -12%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 550px;
+      background: radial-gradient(circle at 50% 50%, 
+        rgba(255, 45, 45, 0.08) 0%, 
+        rgba(255, 106, 0, 0.07) 22%, 
+        rgba(255, 210, 31, 0.06) 42%, 
+        rgba(85, 230, 255, 0.08) 64%, 
+        rgba(22, 139, 255, 0.07) 82%, 
+        rgba(48, 44, 255, 0.06) 100%
+      );
+      filter: blur(75px);
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 0;
+      animation: ambientMotion 11s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    /* 3. SUBTLE FLOATING HERO VISUAL (5-8px over 6-8s) */
+    @keyframes floatHeroY {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+    .hero-float-visual {
+      animation: floatHeroY 7s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* 4. SLOWLY SHIFTING GRADIENTS INSIDE EVERY PRODUCT BOX (8-12s) */
+    @keyframes shiftBoxGradient {
+      0% {
+        background-position: 0% 35%;
+      }
+      50% {
+        background-position: 100% 65%;
+      }
+      100% {
+        background-position: 0% 35%;
+      }
+    }
+    .product-visual-box {
+      background-size: 220% 220% !important;
+      animation: shiftBoxGradient 10s ease-in-out infinite alternate;
+      transition: filter 220ms ease, transform 220ms ease;
+      will-change: background-position, filter;
+    }
+
+    /* 5. SCROLL-REVEAL FOR SECTIONS (Opacity + TranslateY only) */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered Cards Reveal */
+    .card-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .card-reveal.card-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 6. PRODUCT CARD HOVER: translateY(-4px), stronger shadow, brighter box, arrow movement */
+    .product-card {
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, box-shadow;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+    .product-card:hover .product-visual-box {
+      filter: brightness(1.07);
+    }
+    .arrow-icon {
+      transition: transform 200ms ease;
+    }
+    .product-card:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* 7. CTA HOVER INTERACTION */
+    .cta-button {
+      transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cta-button:hover {
+      transform: translateY(-1.5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* 8. NAVBAR SCROLL TRANSITION */
+    #main-header {
+      transition: background-color 280ms ease, backdrop-filter 280ms ease, box-shadow 280ms ease;
+    }
+    #main-header.nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Typography Gradients */
+    .apple-heading-gradient {
+      background: linear-gradient(180deg, #1D1D1F 35%, #56565A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .simple-access-gradient {
+      background: linear-gradient(
+        90deg,
+        #FF2D2D 0%,
+        #FF6A00 22%,
+        #FFD21F 42%,
+        #55E6FF 62%,
+        #168BFF 82%,
+        #302CFF 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .apple-button-gradient {
+      background: linear-gradient(180deg, #2D2D30 0%, #161617 100%);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 1px 0.5px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Accordion Transition */
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-answer.open {
+      grid-template-rows: 1fr;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .product-card:hover {
+        transform: none !important;
+      }
+      .product-card:hover .arrow-icon {
+        transform: none !important;
+      }
+      .ambient-glow-layer {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-neutral-200 selection:text-black antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- 1. Header: Smooth navbar transition when scrolling -->
+  <header id="main-header" class="sticky top-0 z-40 w-full bg-white/70 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center rounded-lg py-1 group" aria-label="NOLE SHOP">
+        <img 
+          src="https://i.ibb.co.com/mV5G8Lf2/NOLE2.png" 
+          alt="NOLE SHOP" 
+          class="h-7 sm:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+        >
+        <div class="hidden px-2.5 py-1 rounded-lg bg-brand-primary text-white font-semibold text-xs tracking-tight">
+          NOLE
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-normal text-brand-secondary">
+        <a href="#products" class="hover:text-brand-primary transition-colors">Products</a>
+        <a href="#how-it-works" class="hover:text-brand-primary transition-colors">How It Works</a>
+        <a href="#faq" class="hover:text-brand-primary transition-colors">FAQ</a>
+        <a href="#support" class="hover:text-brand-primary transition-colors">Support</a>
+      </nav>
+
+      <!-- Cart Trigger & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <button 
+          id="cart-trigger-btn"
+          aria-label="Open Cart"
+          class="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium text-brand-primary bg-brand-surface hover:bg-brand-surfaceHover transition-all duration-150"
+        >
+          <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span class="hidden sm:inline text-xs font-medium">Cart</span>
+          <span id="cart-badge-count" class="w-4 h-4 rounded-full bg-brand-primary text-white text-[10px] font-semibold flex items-center justify-center leading-none">0</span>
+        </button>
+
+        <button 
+          id="mobile-menu-btn"
+          aria-label="Toggle navigation menu"
+          class="md:hidden p-2 rounded-lg text-brand-secondary hover:text-brand-primary hover:bg-brand-surface"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-subtle px-4 py-3 space-y-2 text-sm">
+      <a href="#products" class="block py-2 text-brand-secondary hover:text-brand-primary">Products</a>
+      <a href="#how-it-works" class="block py-2 text-brand-secondary hover:text-brand-primary">How It Works</a>
+      <a href="#faq" class="block py-2 text-brand-secondary hover:text-brand-primary">FAQ</a>
+      <a href="#support" class="block py-2 text-brand-secondary hover:text-brand-primary">Support</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Hero Section: Sequenced entrance animation + Moving NOLE ambient gradient + Floating visual -->
+    <section class="relative pt-16 pb-16 md:pt-24 md:pb-24 bg-brand-bg overflow-hidden">
+      <!-- Slowly moving NOLE multicolor ambient glow -->
+      <div class="ambient-glow-layer"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <!-- Step 1: Headline -->
+        <h1 class="hero-enter-1 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] mb-5">
+          <span class="block apple-heading-gradient">Premium digital products.</span>
+          <span class="block simple-access-gradient font-bold tracking-tight mt-1 sm:mt-2">Simple access.</span>
+        </h1>
+
+        <!-- Step 2: Subtitle -->
+        <p class="hero-enter-2 text-base sm:text-xl text-brand-secondary font-normal max-w-2xl mx-auto leading-relaxed mb-8">
+          AI tools and digital services, carefully selected and delivered with a simple shopping experience.
+        </p>
+
+        <!-- Step 3: CTA Buttons -->
+        <div class="hero-enter-3 flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+          <a 
+            href="#products" 
+            class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full apple-button-gradient text-white text-sm font-medium"
+          >
+            Explore Products
+          </a>
+          <a 
+            href="#how-it-works" 
+            class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-surface hover:bg-brand-surfaceHover text-brand-primary text-sm font-medium"
+          >
+            How It Works
+          </a>
+        </div>
+
+        <!-- Step 4: Subtle floating motion on hero product visuals (5-8px over 6-8 seconds) -->
+        <div class="hero-enter-4 flex justify-center">
+          <div class="hero-float-visual inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/90 backdrop-blur-md shadow-subtle border border-black/[0.04]">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-400 to-rose-500 flex items-center justify-center text-white shadow-sm">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"/></svg>
+            </div>
+            <div class="text-left">
+              <div class="text-xs font-semibold text-brand-primary leading-tight">Google AI Ultra & 7 More</div>
+              <div class="text-[11px] text-brand-secondary">From $14 with digital delivery</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Trust / Value Strip: Scroll reveal -->
+    <section class="scroll-reveal bg-white py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+          
+          <div class="flex items-center justify-center md:justify-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="text-xs font-medium text-brand-primary tracking-tight">Instant Delivery</span>
+          </div>
+
+          <div class="flex items-center justify-center md:justify-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="text-xs font-medium text-brand-primary tracking-tight">Secure Checkout</span>
+          </div>
+
+          <div class="flex items-center justify-center md:justify-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span class="text-xs font-medium text-brand-primary tracking-tight">Easy Access</span>
+          </div>
+
+          <div class="flex items-center justify-center md:justify-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span class="text-xs font-medium text-brand-primary tracking-tight">Reseller Friendly</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Product Catalog: Staggered entrance, Shifting gradients, and lift on hover -->
+    <section id="products" class="py-20 md:py-28 bg-brand-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-8 scroll-reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-primary mb-2">
+            Choose what you need.
+          </h2>
+          <p class="text-base sm:text-lg text-brand-secondary">
+            Premium digital products for work, creativity, entertainment, and AI.
+          </p>
+        </div>
+
+        <!-- Quick Category Filter Pills -->
+        <div class="flex flex-wrap items-center gap-2 mb-10 scroll-reveal">
+          <button 
+            onclick="setCategoryFilter('all')" 
+            data-category="all"
+            class="filter-pill active px-4 py-2 rounded-full text-xs font-semibold bg-brand-primary text-white transition-all duration-150 shadow-subtle"
+          >
+            All Products
+          </button>
+          <button 
+            onclick="setCategoryFilter('video')" 
+            data-category="video"
+            class="filter-pill px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-neutral-100 text-brand-secondary hover:text-brand-primary transition-all duration-150"
+          >
+            AI Video
+          </button>
+          <button 
+            onclick="setCategoryFilter('text-code')" 
+            data-category="text-code"
+            class="filter-pill px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-neutral-100 text-brand-secondary hover:text-brand-primary transition-all duration-150"
+          >
+            Text & Code
+          </button>
+          <button 
+            onclick="setCategoryFilter('productivity')" 
+            data-category="productivity"
+            class="filter-pill px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-neutral-100 text-brand-secondary hover:text-brand-primary transition-all duration-150"
+          >
+            Productivity
+          </button>
+          <button 
+            onclick="setCategoryFilter('streaming')" 
+            data-category="streaming"
+            class="filter-pill px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-neutral-100 text-brand-secondary hover:text-brand-primary transition-all duration-150"
+          >
+            Streaming
+          </button>
+        </div>
+
+        <!-- Product Grid Container (populated by JS with staggered reveals) -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+    <!-- 6. How It Works: Scroll reveal -->
+    <section id="how-it-works" class="py-20 md:py-28 bg-white scroll-reveal">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-primary mb-2">
+            Simple from start to finish.
+          </h2>
+          <p class="text-base text-brand-secondary">
+            A frictionless flow designed to get you running without complexity.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-[24px] bg-brand-surface">
+            <span class="text-xs font-semibold tracking-wider text-brand-tertiary uppercase">01 Choose</span>
+            <h3 class="text-xl font-bold text-brand-primary mt-3 mb-2">Choose</h3>
+            <p class="text-sm text-brand-secondary leading-relaxed">
+              Choose the digital product you need.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-[24px] bg-brand-surface">
+            <span class="text-xs font-semibold tracking-wider text-brand-tertiary uppercase">02 Checkout</span>
+            <h3 class="text-xl font-bold text-brand-primary mt-3 mb-2">Checkout</h3>
+            <p class="text-sm text-brand-secondary leading-relaxed">
+              Complete your order through the checkout flow.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-[24px] bg-brand-surface">
+            <span class="text-xs font-semibold tracking-wider text-brand-tertiary uppercase">03 Access</span>
+            <h3 class="text-xl font-bold text-brand-primary mt-3 mb-2">Get Access</h3>
+            <p class="text-sm text-brand-secondary leading-relaxed">
+              Receive your digital product or access details after payment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ Section: Smooth Accordion Animation -->
+    <section id="faq" class="py-20 md:py-28 bg-brand-surface scroll-reveal">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-brand-primary mb-2">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-base sm:text-lg text-brand-secondary">
+            Answers regarding access, fulfillment, and support.
+          </p>
+        </div>
+
+        <div class="max-w-3xl space-y-3" id="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="bg-white rounded-2xl shadow-subtle overflow-hidden">
+            <button 
+              class="w-full px-6 py-4 text-left font-semibold text-brand-primary flex items-center justify-between gap-4"
+              onclick="toggleFaq(this)"
+              aria-expanded="false"
+            >
+              <span class="text-sm sm:text-base">How do I receive my product?</span>
+              <svg class="w-4 h-4 text-brand-secondary transition-transform duration-200 transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-inner">
+                <p class="px-6 pb-5 text-sm text-brand-secondary leading-relaxed pt-1">
+                  Digital delivery and access credentials are provided directly after order checkout and payment processing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="bg-white rounded-2xl shadow-subtle overflow-hidden">
+            <button 
+              class="w-full px-6 py-4 text-left font-semibold text-brand-primary flex items-center justify-between gap-4"
+              onclick="toggleFaq(this)"
+              aria-expanded="false"
+            >
+              <span class="text-sm sm:text-base">How long does delivery take?</span>
+              <svg class="w-4 h-4 text-brand-secondary transition-transform duration-200 transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-inner">
+                <p class="px-6 pb-5 text-sm text-brand-secondary leading-relaxed pt-1">
+                  Digital product access credentials are processed after payment verification and delivered to your designated email.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="bg-white rounded-2xl shadow-subtle overflow-hidden">
+            <button 
+              class="w-full px-6 py-4 text-left font-semibold text-brand-primary flex items-center justify-between gap-4"
+              onclick="toggleFaq(this)"
+              aria-expanded="false"
+            >
+              <span class="text-sm sm:text-base">Can I use the products for resale?</span>
+              <svg class="w-4 h-4 text-brand-secondary transition-transform duration-200 transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-inner">
+                <p class="px-6 pb-5 text-sm text-brand-secondary leading-relaxed pt-1">
+                  Resale terms depend on the specific product tier and duration selected. Please refer to individual usage guidelines.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="bg-white rounded-2xl shadow-subtle overflow-hidden">
+            <button 
+              class="w-full px-6 py-4 text-left font-semibold text-brand-primary flex items-center justify-between gap-4"
+              onclick="toggleFaq(this)"
+              aria-expanded="false"
+            >
+              <span class="text-sm sm:text-base">Is payment secure?</span>
+              <svg class="w-4 h-4 text-brand-secondary transition-transform duration-200 transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-inner">
+                <p class="px-6 pb-5 text-sm text-brand-secondary leading-relaxed pt-1">
+                  Checkout uses encrypted payment gateways. Sensitive payment tokens are never retained on the storefront.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="bg-white rounded-2xl shadow-subtle overflow-hidden">
+            <button 
+              class="w-full px-6 py-4 text-left font-semibold text-brand-primary flex items-center justify-between gap-4"
+              onclick="toggleFaq(this)"
+              aria-expanded="false"
+            >
+              <span class="text-sm sm:text-base">Can I contact support?</span>
+              <svg class="w-4 h-4 text-brand-secondary transition-transform duration-200 transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-inner">
+                <p class="px-6 pb-5 text-sm text-brand-secondary leading-relaxed pt-1">
+                  Yes, our configured support desk is available via support@noleshop.com for assistance with orders.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-16 bg-white scroll-reveal">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold text-brand-primary mb-2">Need assistance with an order?</h3>
+        <p class="text-sm text-brand-secondary mb-6">Our support channel is ready to assist you.</p>
+        <button 
+          onclick="showToast('Support email: support@noleshop.com')" 
+          class="cta-button inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-surface hover:bg-brand-surfaceHover text-brand-primary text-sm font-medium"
+        >
+          <svg class="w-4 h-4 text-brand-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Contact Support
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Footer -->
+  <footer class="bg-white pt-12 pb-14 text-sm text-brand-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8">
+        <div>
+          <a href="#" class="inline-flex items-center mb-1 group" aria-label="NOLE SHOP">
+            <img 
+              src="https://i.ibb.co.com/mV5G8Lf2/NOLE2.png" 
+              alt="NOLE SHOP" 
+              class="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              onerror="this.style.display='none'"
+            >
+          </a>
+          <p class="text-xs text-brand-secondary mt-1">Premium digital products. Simple access.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-xs">
+          <a href="#products" class="hover:text-brand-primary transition-colors">Products</a>
+          <a href="#how-it-works" class="hover:text-brand-primary transition-colors">How It Works</a>
+          <a href="#faq" class="hover:text-brand-primary transition-colors">FAQ</a>
+          <a href="#support" class="hover:text-brand-primary transition-colors">Support</a>
+        </div>
+      </div>
+      <div class="pt-2 text-xs text-brand-tertiary">
+        <p>&copy; 2026 NOLE SHOP. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Product Detail Modal -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true" role="dialog">
+    <div class="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity" onclick="closeProductModal()"></div>
+    <div class="fixed inset-0 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+      <div class="relative bg-white rounded-[32px] shadow-float max-w-lg w-full p-7 sm:p-9 overflow-hidden">
+        
+        <button 
+          onclick="closeProductModal()"
+          class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-secondary hover:text-brand-primary mb-6 transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Products
+        </button>
+
+        <div id="modal-product-content" class="space-y-6">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer-container" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+    <div id="cart-backdrop" class="fixed inset-0 bg-black/25 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer(false)"></div>
+    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-sheet flex flex-col justify-between transform transition-transform duration-250 ease-out translate-x-full" id="cart-drawer-panel">
+      
+      <div class="p-6 flex items-center justify-between">
+        <div>
+          <h3 class="text-lg font-bold text-brand-primary tracking-tight">Your Cart</h3>
+        </div>
+        <button 
+          onclick="toggleCartDrawer(false)"
+          class="w-8 h-8 rounded-full bg-brand-surface hover:bg-brand-surfaceHover flex items-center justify-center text-brand-secondary hover:text-brand-primary transition-colors"
+          aria-label="Close cart"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="p-6 overflow-y-auto flex-1 space-y-4">
+        <!-- Populated by JS -->
+      </div>
+
+      <div id="cart-footer" class="p-6 bg-brand-surface space-y-4 rounded-t-3xl">
+        <div class="flex items-center justify-between text-base">
+          <span class="text-brand-secondary font-medium">Subtotal</span>
+          <span id="cart-subtotal-price" class="font-bold text-brand-primary">$0.00</span>
+        </div>
+        <button 
+          id="checkout-btn"
+          onclick="openCheckoutModal()"
+          class="cta-button w-full py-3.5 px-4 rounded-full bg-brand-primary hover:bg-black text-white text-sm font-semibold disabled:opacity-40 disabled:pointer-events-none"
+        >
+          Checkout
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Checkout UI Modal -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+    <div class="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity" onclick="closeCheckoutModal()"></div>
+    <div class="fixed inset-0 overflow-y-auto flex items-center justify-center p-4">
+      <div class="relative bg-white rounded-[28px] shadow-float max-w-lg w-full p-6 sm:p-8 overflow-hidden">
+        
+        <button 
+          onclick="closeCheckoutModal()"
+          aria-label="Close checkout"
+          class="absolute top-5 right-5 w-8 h-8 rounded-full bg-brand-surface hover:bg-brand-surfaceHover flex items-center justify-center text-brand-secondary hover:text-brand-primary transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="mb-5">
+          <h3 class="text-xl font-bold text-brand-primary tracking-tight">Checkout</h3>
+          <p class="text-xs text-brand-secondary mt-1">Enter your delivery details to receive your access credentials.</p>
+        </div>
+
+        <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-brand-primary mb-1">Delivery Email</label>
+            <input 
+              type="email" 
+              id="checkout-email" 
+              required 
+              placeholder="name@example.com"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-brand-surface text-sm text-brand-primary focus:bg-white transition-colors"
+            >
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-brand-primary mb-1">Contact Handle (Optional)</label>
+            <input 
+              type="text" 
+              id="checkout-handle" 
+              placeholder="@handle or phone number"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-brand-surface text-sm text-brand-primary focus:bg-white transition-colors"
+            >
+          </div>
+
+          <!-- Crypto Payment Method Selector -->
+          <div>
+            <label class="block text-xs font-semibold text-brand-primary mb-2">Crypto Payment Method</label>
+            <div class="grid grid-cols-2 gap-2.5">
+              <button 
+                type="button"
+                id="pay-btn-usdt-bep20"
+                onclick="selectPaymentMethod('usdt-bep20')"
+                class="payment-option-btn p-3 rounded-2xl border-2 text-left transition-all duration-150 border-brand-primary bg-white shadow-subtle flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-bold text-brand-primary">USDT</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold">BEP-20</span>
+                </div>
+                <span class="text-[11px] text-brand-secondary">BNB Smart Chain</span>
+              </button>
+
+              <button 
+                type="button"
+                id="pay-btn-usdc-solana"
+                onclick="selectPaymentMethod('usdc-solana')"
+                class="payment-option-btn p-3 rounded-2xl border-2 text-left transition-all duration-150 border-neutral-200 bg-brand-surface hover:bg-neutral-100 flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-bold text-brand-primary">USDC</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold">Solana</span>
+                </div>
+                <span class="text-[11px] text-brand-secondary">SPL Network</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Crypto Payment Details Box -->
+          <div class="p-4 rounded-2xl bg-brand-surface border border-neutral-200/80 space-y-3.5">
+            <div class="flex items-center justify-between text-xs pb-2 border-b border-neutral-200">
+              <span class="text-brand-secondary">Total Amount:</span>
+              <span id="crypto-amount-display" class="font-bold text-sm text-brand-primary">$0.00 USDT</span>
+            </div>
+
+            <!-- QR Code Section -->
+            <div id="crypto-qr-container" class="flex flex-col items-center justify-center p-3 bg-white rounded-xl border border-neutral-100 shadow-subtle">
+              <p class="text-[11px] text-brand-secondary font-medium mb-2">Scan QR Code to Pay:</p>
+              <div class="w-44 h-44 rounded-lg overflow-hidden bg-white p-1 border border-neutral-200 flex items-center justify-center">
+                <img 
+                  id="crypto-qr-image" 
+                  src="https://i.ibb.co.com/SDxBPPJY/Screenshot-2026-09-18-224121.png" 
+                  alt="QR Code Wallet Deposit" 
+                  class="w-full h-full object-contain"
+                >
+              </div>
+              <span class="text-[10px] text-brand-tertiary mt-1.5 font-medium">Network: <span id="crypto-network-label" class="font-bold text-brand-primary">BEP-20</span></span>
+            </div>
+
+            <!-- Deposit Address with 1-Click Copy -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-[11px] font-semibold text-brand-primary">Recipient Wallet Address</label>
+                <span class="text-[10px] text-brand-tertiary">Click copy to transfer</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <input 
+                  type="text" 
+                  id="crypto-wallet-address" 
+                  readonly 
+                  value="0x55a0404528F5f3491AE6FF17c19b45719A61a6F0"
+                  class="w-full px-3 py-2 rounded-xl bg-white border border-neutral-200 text-xs font-mono text-brand-primary tracking-tight select-all focus:outline-none"
+                >
+                <button 
+                  type="button" 
+                  onclick="copyWalletAddress()"
+                  class="shrink-0 px-3 py-2 rounded-xl bg-brand-primary hover:bg-black text-white text-xs font-medium transition-colors flex items-center gap-1"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Warning Notice -->
+            <p id="crypto-warning-text" class="text-[11px] text-amber-700 bg-amber-50 p-2.5 rounded-xl border border-amber-200/70 leading-relaxed">
+              Notice: Ensure you only send USDT via <strong>BNB Smart Chain (BEP-20)</strong> network for a valid transaction.
+            </p>
+
+            <!-- TxID Input -->
+            <div>
+              <label class="block text-[11px] font-semibold text-brand-primary mb-1">Transaction Hash / TxID (Optional / After Payment)</label>
+              <input 
+                type="text" 
+                id="checkout-txid" 
+                placeholder="e.g. 0x8f2d... or paste transaction hash"
+                class="w-full px-3 py-2 rounded-xl bg-white border border-neutral-200 text-xs text-brand-primary focus:outline-none focus:border-brand-primary transition-colors"
+              >
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-brand-surface text-xs space-y-2">
+            <div class="flex justify-between text-brand-secondary">
+              <span>Subtotal</span>
+              <span id="checkout-summary-subtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between text-brand-secondary">
+              <span>Delivery</span>
+              <span class="text-brand-primary font-medium">Free digital delivery</span>
+            </div>
+            <div class="pt-2 flex justify-between font-bold text-brand-primary text-sm">
+              <span>Total</span>
+              <span id="checkout-summary-total">$0.00</span>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-1">
+            <button 
+              type="submit"
+              id="checkout-submit-btn"
+              class="cta-button w-full py-3 rounded-full bg-brand-primary hover:bg-black text-white text-sm font-semibold flex items-center justify-center gap-2"
+            >
+              <span>Confirm Order</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+
+            <button 
+              type="button"
+              onclick="handleWhatsAppCheckout()"
+              class="cta-button w-full py-2.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold flex items-center justify-center gap-2 border border-emerald-200/60 transition-colors"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <span>Order via WhatsApp Direct</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-250 pointer-events-none">
+    <div class="bg-brand-primary text-white text-xs sm:text-sm px-4 py-3 rounded-2xl shadow-float flex items-center gap-2.5 max-w-sm">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toast-message">Cart updated</span>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Master Product Catalog — Aset visual, gambar, dan detail final yang terkunci permanen
+     */
+    const MASTER_PRODUCTS = [
+      {
+        id: "higgsfield-pro",
+        name: "Higgsfield Max",
+        category: "video",
+        duration: "1 Month • 5,400 Credits",
+        price: 80,
+        currency: "USD",
+        description: "AI video creation and creative tools with 5,400 monthly credits",
+        featured: false,
+        image: "https://i.ibb.co.com/zhD7HyJQ/hgflds.png",
+        gradient: "linear-gradient(135deg, rgba(255, 45, 45, 0.16) 0%, rgba(255, 106, 0, 0.14) 50%, rgba(255, 210, 31, 0.12) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><polygon points="9.5 8 16 12 9.5 16 9.5 8" fill="currentColor"/></svg>`,
+        keywords: ["higgsfield", "hgfld", "higgs"]
+      },
+      {
+        id: "claude-max",
+        name: "Claude Max 20x",
+        category: "text-code",
+        duration: "1 Month",
+        price: 120,
+        currency: "USD",
+        description: "Advanced AI assistance for demanding workflows",
+        featured: false,
+        image: "https://i.ibb.co.com/h18VgjqT/Chat-GPT-Image-Sep-18-2026-07-39-51-PM.png",
+        gradient: "linear-gradient(150deg, rgba(255, 106, 0, 0.16) 0%, rgba(255, 210, 31, 0.15) 60%, rgba(255, 250, 240, 0.7) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>`,
+        keywords: ["claude", "anthropic", "claude max"]
+      },
+      {
+        id: "runway-pro",
+        name: "Runway Pro",
+        category: "video",
+        duration: "12 Month",
+        price: 168,
+        currency: "USD",
+        description: "Professional AI video creation — only $14/month (regularly $28)",
+        featured: false,
+        image: "https://i.ibb.co.com/hRV4LT0m/Chat-GPT-Image-Sep-18-2026-07-45-11-PM.png",
+        gradient: "linear-gradient(135deg, rgba(48, 44, 255, 0.16) 0%, rgba(22, 139, 255, 0.13) 50%, rgba(85, 230, 255, 0.12) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></svg>`,
+        keywords: ["runway", "runway pro", "gen-2", "gen-3"]
+      },
+      {
+        id: "notion-ai-business",
+        name: "Notion AI Business",
+        category: "productivity",
+        duration: "12 Month",
+        price: 60,
+        currency: "USD",
+        description: "AI-powered productivity for teams",
+        featured: false,
+        image: "https://i.ibb.co.com/G4w4T8r0/Chat-GPT-Image-Sep-18-2026-07-47-11-PM.png",
+        gradient: "linear-gradient(135deg, rgba(85, 230, 255, 0.18) 0%, rgba(22, 139, 255, 0.12) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+        keywords: ["notion", "notion ai"]
+      },
+      {
+        id: "supergrok-heavy",
+        name: "SuperGrok Heavy",
+        category: "text-code",
+        duration: "1 Month",
+        price: 14,
+        currency: "USD",
+        description: "Advanced AI access for everyday tasks",
+        featured: false,
+        image: "https://i.ibb.co.com/RkPrZMjL/Chat-GPT-Image-Sep-18-2026-07-49-15-PM.png",
+        gradient: "linear-gradient(125deg, rgba(255, 45, 45, 0.15) 0%, rgba(255, 106, 0, 0.11) 40%, rgba(48, 44, 255, 0.12) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+        keywords: ["grok", "supergrok", "xai"]
+      },
+      {
+        id: "chatgpt-plus",
+        name: "ChatGPT Pro 20x",
+        category: "text-code",
+        duration: "6 Month • Full Warranty",
+        price: 35,
+        currency: "USD",
+        description: "Premium AI access for work and creativity with full warranty",
+        featured: false,
+        image: "https://i.ibb.co.com/ZRR2ng9S/Chat-GPT-Image-Sep-18-2026-07-42-20-PM.png",
+        gradient: "linear-gradient(145deg, rgba(85, 230, 255, 0.16) 0%, rgba(22, 139, 255, 0.13) 55%, rgba(48, 44, 255, 0.11) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>`,
+        keywords: ["chatgpt", "chat gpt", "openai", "gpt"]
+      },
+      {
+        id: "hbo-max",
+        name: "HBO Max",
+        category: "streaming",
+        duration: "12 Month",
+        price: 45,
+        currency: "USD",
+        description: "Premium entertainment streaming access",
+        featured: false,
+        image: "https://i.ibb.co.com/r2YnHSWh/Chat-GPT-Image-Sep-18-2026-07-50-06-PM.png",
+        gradient: "linear-gradient(140deg, rgba(48, 44, 255, 0.16) 0%, rgba(22, 139, 255, 0.11) 45%, rgba(255, 45, 45, 0.12) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="15" rx="3"/><polyline points="17 2 12 7 7 2"/></svg>`,
+        keywords: ["hbo", "hbo max", "max"]
+      },
+      {
+        id: "gemini-ai-pro",
+        name: "Google AI Ultra",
+        category: "productivity",
+        duration: "6 Month • 25 Credits/Month",
+        price: 40,
+        currency: "USD",
+        description: "25 Credits/Month with advanced AI tools for productivity and creativity",
+        featured: true,
+        image: "https://i.ibb.co.com/QFVgMSTz/Chat-GPT-Image-Sep-18-2026-07-51-43-PM.png",
+        gradient: "linear-gradient(135deg, rgba(255, 45, 45, 0.14) 0%, rgba(255, 106, 0, 0.13) 24%, rgba(255, 210, 31, 0.13) 44%, rgba(85, 230, 255, 0.14) 66%, rgba(22, 139, 255, 0.14) 84%, rgba(48, 44, 255, 0.13) 100%)",
+        iconSvg: `<svg class="w-6 h-6 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"/></svg>`,
+        keywords: ["google", "gemini", "google ai"]
+      }
+    ];
+
+    // Katalog aktif final dan permanen — terkunci dari penimpaan luar
+    let PRODUCTS = MASTER_PRODUCTS.map(p => ({ ...p }));
+
+    let currentFilter = 'all';
+
+    /**
+     * Crypto Payment Configurations
+     */
+    const CRYPTO_WALLETS = {
+      'usdt-bep20': {
+        name: 'USDT',
+        network: 'BEP-20 (BNB Smart Chain)',
+        networkBadge: 'BEP-20',
+        currencyLabel: 'USDT',
+        address: '0x55a0404528F5f3491AE6FF17c19b45719A61a6F0',
+        qrCode: 'https://i.ibb.co.com/SDxBPPJY/Screenshot-2026-09-18-224121.png',
+        warning: 'Notice: Ensure you only send USDT via <strong>BNB Smart Chain (BEP-20)</strong> network for a valid transaction.'
+      },
+      'usdc-solana': {
+        name: 'USDC',
+        network: 'Solana (SPL)',
+        networkBadge: 'Solana (SPL)',
+        currencyLabel: 'USDC',
+        address: '9oVjjP5bCzJvTe1CXVeaccoNMiQt2dbWQuW43RcGj893',
+        qrCode: 'https://i.ibb.co.com/Lhb5D6r6/Screenshot-2026-09-18-223950.png',
+        warning: 'Notice: Ensure you only send USDC via <strong>Solana (SPL)</strong> network for a valid transaction.'
+      }
+    };
+
+    let selectedPaymentMethod = 'usdt-bep20';
+
+    function selectPaymentMethod(method) {
+      selectedPaymentMethod = method;
+      const config = CRYPTO_WALLETS[method];
+      if (!config) return;
+
+      // Update button visual styles
+      document.querySelectorAll('.payment-option-btn').forEach(btn => {
+        btn.className = 'payment-option-btn p-3 rounded-2xl border-2 text-left transition-all duration-150 border-neutral-200 bg-brand-surface hover:bg-neutral-100';
+      });
+
+      const activeBtn = document.getElementById(`pay-btn-${method}`);
+      if (activeBtn) {
+        activeBtn.className = 'payment-option-btn p-3 rounded-2xl border-2 text-left transition-all duration-150 border-brand-primary bg-white shadow-subtle';
+      }
+
+      // Update crypto details
+      const totalCost = getCartTotal();
+      const amountEl = document.getElementById('crypto-amount-display');
+      const networkLabel = document.getElementById('crypto-network-label');
+      const addressInput = document.getElementById('crypto-wallet-address');
+      const warningText = document.getElementById('crypto-warning-text');
+      const qrContainer = document.getElementById('crypto-qr-container');
+      const qrImage = document.getElementById('crypto-qr-image');
+
+      if (amountEl) amountEl.textContent = `${formatPrice(totalCost)} ${config.currencyLabel}`;
+      if (networkLabel) networkLabel.textContent = config.networkBadge;
+      if (addressInput) addressInput.value = config.address;
+      if (warningText) warningText.innerHTML = config.warning;
+
+      // QR Code toggle
+      if (qrContainer && qrImage) {
+        if (config.qrCode) {
+          qrImage.src = config.qrCode;
+          qrContainer.classList.remove('hidden');
+        } else {
+          qrContainer.classList.add('hidden');
+        }
+      }
+    }
+
+    function copyWalletAddress() {
+      const addressInput = document.getElementById('crypto-wallet-address');
+      if (!addressInput) return;
+
+      addressInput.select();
+      addressInput.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      showToast('Wallet address copied to clipboard!');
+    }
+
+    function setCategoryFilter(category) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        if (btn.dataset.category === category) {
+          btn.className = 'filter-pill active px-4 py-2 rounded-full text-xs font-semibold bg-brand-primary text-white transition-all duration-150 shadow-subtle';
+        } else {
+          btn.className = 'filter-pill px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-neutral-100 text-brand-secondary hover:text-brand-primary transition-all duration-150';
+        }
+      });
+      renderProductGrid();
+    }
+
+    function formatPrice(amount) {
+      if (typeof amount !== 'number') amount = Number(amount) || 0;
+      if (Number.isInteger(amount)) {
+        return `$${amount}`;
+      }
+      return `$${amount.toFixed(2)}`;
+    }
+
+    let cart = [];
+
+    /**
+     * Renders products with guaranteed image loading and graceful fallbacks
+     */
+    function renderProductGrid() {
+      const grid = document.getElementById("product-grid");
+      if (!grid) return;
+
+      const filteredProducts = currentFilter === 'all' 
+        ? PRODUCTS 
+        : PRODUCTS.filter(p => p.category === currentFilter);
+
+      if (filteredProducts.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 text-sm text-brand-secondary">
+            No products found in this category.
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filteredProducts.map((product, index) => {
+        return `
+          <div 
+            class="product-card card-reveal group relative bg-white rounded-[26px] p-6 sm:p-7 shadow-subtle flex flex-col justify-between cursor-pointer border border-black/[0.04]" 
+            style="transition-delay: ${index * 60}ms;"
+            onclick="openProductDetail('${product.id}')"
+            tabindex="0"
+            role="button"
+            onkeydown="if(event.key==='Enter'||event.key===' '){ openProductDetail('${product.id}'); }"
+          >
+            <div>
+              <!-- Dedicated visual container with permanent image preservation -->
+              <div class="product-visual-box w-full h-52 rounded-[22px] relative overflow-hidden mb-6 flex items-center justify-center bg-neutral-100">
+                <img 
+                  src="${product.image}" 
+                  alt="${product.name}" 
+                  loading="eager"
+                  class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  onerror="this.onerror=null; const m = MASTER_PRODUCTS.find(x => x.id === '${product.id}'); if(m && m.image) this.src = m.image;"
+                >
+                ${product.featured ? `
+                  <span class="absolute top-3.5 right-3.5 text-[11px] font-semibold text-brand-primary bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-subtle z-10">
+                    Featured
+                  </span>
+                ` : ''}
+              </div>
+
+              <!-- Product Name -->
+              <h3 class="text-lg font-semibold text-brand-primary tracking-tight transition-colors duration-150 group-hover:text-black">
+                ${product.name}
+              </h3>
+
+              <!-- Duration -->
+              <p class="text-xs text-brand-secondary mt-1 mb-2.5 font-normal">
+                ${product.duration}
+              </p>
+
+              <!-- Description -->
+              <p class="text-xs text-brand-secondary leading-relaxed mb-6 line-clamp-2">
+                ${product.description}
+              </p>
+            </div>
+
+            <!-- Price and Action Bar -->
+            <div class="pt-3 flex items-center justify-between border-t border-neutral-100/80">
+              <div>
+                <span class="text-xs text-brand-tertiary block leading-none mb-1">Price</span>
+                <span class="text-xl font-bold tracking-tight text-brand-primary">
+                  ${formatPrice(product.price)}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button 
+                  onclick="event.stopPropagation(); addToCart('${product.id}');"
+                  title="Quick Add to Cart"
+                  class="p-2 rounded-full bg-brand-surface hover:bg-brand-primary hover:text-white text-brand-primary transition-all duration-150"
+                  aria-label="Add ${product.name} to cart"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                  </svg>
+                </button>
+                <span class="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:underline">
+                  Details <span class="arrow-icon">&rarr;</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      initScrollObservers();
+    }
+
+    /**
+     * Scroll Observers: Section Reveal + Navbar Scroll State
+     */
+    function initScrollObservers() {
+      const revealItems = document.querySelectorAll(".scroll-reveal, .card-reveal");
+      
+      if (!("IntersectionObserver" in window)) {
+        revealItems.forEach(el => {
+          el.classList.add("is-visible", "card-visible");
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible", "card-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
+      });
+
+      revealItems.forEach(el => observer.observe(el));
+    }
+
+    /**
+     * Sticky Header Scroll Transition
+     */
+    function initHeaderScroll() {
+      const header = document.getElementById("main-header");
+      if (!header) return;
+
+      const updateHeaderState = () => {
+        if (window.scrollY > 20) {
+          header.classList.add("nav-scrolled");
+        } else {
+          header.classList.remove("nav-scrolled");
+        }
+      };
+
+      window.addEventListener("scroll", updateHeaderState, { passive: true });
+      updateHeaderState();
+    }
+
+    /**
+     * Accordion toggle with smooth CSS grid animation
+     */
+    function toggleFaq(button) {
+      const answerWrapper = button.nextElementSibling;
+      const svgIcon = button.querySelector('svg');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', !isExpanded);
+      if (isExpanded) {
+        answerWrapper.classList.remove('open');
+        svgIcon.classList.remove('rotate-180');
+      } else {
+        answerWrapper.classList.add('open');
+        svgIcon.classList.add('rotate-180');
+      }
+    }
+
+    /**
+     * Product Detail Modal with permanent image guarantee
+     */
+    function openProductDetail(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const modalContent = document.getElementById("modal-product-content");
+      modalContent.innerHTML = `
+        <div class="product-visual-box w-full h-60 rounded-[24px] relative overflow-hidden mb-3 flex items-center justify-center bg-neutral-100">
+          <img 
+            src="${product.image}" 
+            alt="${product.name}" 
+            loading="eager"
+            class="w-full h-full object-cover transition-transform duration-300"
+            onerror="this.onerror=null; const m = MASTER_PRODUCTS.find(x => x.id === '${product.id}'); if(m && m.image) this.src = m.image;"
+          >
+          ${product.featured ? `
+            <span class="absolute top-4 right-4 text-[11px] font-semibold text-brand-primary bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full shadow-subtle tracking-tight z-10">
+              Featured
+            </span>
+          ` : ''}
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-brand-primary tracking-tight">${product.name}</h2>
+          <p class="text-sm text-brand-secondary mt-1 font-normal">${product.duration}</p>
+        </div>
+
+        <div class="text-3xl sm:text-4xl font-bold text-brand-primary tracking-tight">
+          ${formatPrice(product.price)}
+        </div>
+
+        <p class="text-sm text-brand-secondary leading-relaxed">
+          ${product.description}
+        </p>
+
+        <div class="bg-brand-surface rounded-2xl p-5 sm:p-6 space-y-3">
+          <h4 class="text-xs font-semibold text-brand-primary tracking-tight uppercase tracking-wider">What's included</h4>
+          <ul class="text-xs text-brand-secondary space-y-2.5">
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-primary shrink-0"></span> ${product.duration} access
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-primary shrink-0"></span> Digital delivery
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-primary shrink-0"></span> Product access information after checkout
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-2">
+          <button 
+            onclick="addToCart('${product.id}'); closeProductModal(); toggleCartDrawer(true);"
+            class="cta-button w-full py-4 px-5 rounded-full apple-button-gradient text-white text-sm font-semibold tracking-tight shadow-subtle"
+          >
+            Buy Now
+          </button>
+        </div>
+      `;
+
+      const modal = document.getElementById("product-modal");
+      modal.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById("product-modal");
+      modal.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    /**
+     * Cart Logic
+     */
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(i => i.id === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          duration: product.duration,
+          price: product.price,
+          quantity: 1
+        });
+      }
+
+      updateCartUi();
+      showToast(`Added ${product.name} to cart`);
+    }
+
+    function updateCartQuantity(productId, delta) {
+      const idx = cart.findIndex(i => i.id === productId);
+      if (idx === -1) return;
+
+      cart[idx].quantity += delta;
+      if (cart[idx].quantity <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUi();
+    }
+
+    function removeCartItem(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      updateCartUi();
+    }
+
+    function getCartTotal() {
+      return cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+    }
+
+    function updateCartUi() {
+      const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+      const totalCost = getCartTotal();
+
+      const badge = document.getElementById("cart-badge-count");
+      if (badge) badge.textContent = totalCount;
+
+      const subtotalEl = document.getElementById("cart-subtotal-price");
+      if (subtotalEl) subtotalEl.textContent = formatPrice(totalCost);
+
+      const checkoutBtn = document.getElementById("checkout-btn");
+      if (checkoutBtn) {
+        checkoutBtn.disabled = cart.length === 0;
+      }
+
+      const container = document.getElementById("cart-items-container");
+      if (!container) return;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-56 flex flex-col items-center justify-center text-center p-6">
+            <p class="text-sm font-semibold text-brand-primary">Your cart is empty</p>
+            <p class="text-xs text-brand-secondary mt-1">Select any digital product to begin.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-brand-surface text-sm">
+          <div>
+            <h4 class="text-xs font-semibold text-brand-primary leading-tight">${item.name}</h4>
+            <p class="text-[11px] text-brand-secondary">${item.duration}</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="flex items-center rounded-lg bg-white overflow-hidden text-xs shadow-subtle">
+              <button 
+                onclick="updateCartQuantity('${item.id}', -1)"
+                class="w-6 h-6 flex items-center justify-center hover:bg-brand-surface text-brand-secondary"
+                aria-label="Decrease"
+              >
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"/></svg>
+              </button>
+              <span class="w-6 text-center font-semibold text-brand-primary">${item.quantity}</span>
+              <button 
+                onclick="updateCartQuantity('${item.id}', 1)"
+                class="w-6 h-6 flex items-center justify-center hover:bg-brand-surface text-brand-secondary"
+                aria-label="Increase"
+              >
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+              </button>
+            </div>
+
+            <span class="text-xs font-bold text-brand-primary min-w-10 text-right">${formatPrice(item.price * item.quantity)}</span>
+
+            <button 
+              onclick="removeCartItem('${item.id}')"
+              class="text-brand-tertiary hover:text-red-500 p-1"
+              aria-label="Remove item"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCartDrawer(open) {
+      const container = document.getElementById("cart-drawer-container");
+      const panel = document.getElementById("cart-drawer-panel");
+
+      if (open) {
+        container.classList.remove("hidden");
+        setTimeout(() => {
+          panel.classList.remove("translate-x-full");
+        }, 15);
+        document.body.classList.add("overflow-hidden");
+      } else {
+        panel.classList.add("translate-x-full");
+        setTimeout(() => {
+          container.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        }, 220);
+      }
+    }
+
+    function openCheckoutModal() {
+      if (cart.length === 0) return;
+      toggleCartDrawer(false);
+
+      const totalCost = getCartTotal();
+      document.getElementById("checkout-summary-subtotal").textContent = formatPrice(totalCost);
+      document.getElementById("checkout-summary-total").textContent = formatPrice(totalCost);
+
+      selectPaymentMethod(selectedPaymentMethod);
+
+      const modal = document.getElementById("checkout-modal");
+      modal.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById("checkout-modal");
+      modal.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    function handleCheckoutSubmit(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById("checkout-email");
+      const email = emailInput ? emailInput.value.trim() : "";
+      const txidInput = document.getElementById("checkout-txid");
+      const txid = txidInput ? txidInput.value.trim() : "";
+      const submitBtn = document.getElementById("checkout-submit-btn");
+      const paymentConfig = CRYPTO_WALLETS[selectedPaymentMethod] || {
+        name: 'Crypto',
+        networkBadge: 'Direct'
+      };
+
+      if (!email) {
+        showToast("Please enter your delivery email.");
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Verifying order...</span>`;
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span>Confirm Order</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          `;
+        }
+        closeCheckoutModal();
+        cart = [];
+        updateCartUi();
+        const txInfo = txid ? ` (TxID: ${txid.substring(0, 10)}...)` : '';
+        showToast(`Order via ${paymentConfig.name} (${paymentConfig.networkBadge}) registered for ${email}!${txInfo}`);
+      }, 1000);
+    }
+
+    function handleWhatsAppCheckout() {
+      if (cart.length === 0) return;
+      const email = document.getElementById("checkout-email").value || "(Not provided)";
+      const handle = document.getElementById("checkout-handle").value || "-";
+      const txid = document.getElementById("checkout-txid") ? document.getElementById("checkout-txid").value.trim() : "";
+      const totalCost = getCartTotal();
+      const paymentConfig = CRYPTO_WALLETS[selectedPaymentMethod];
+
+      const itemsList = cart.map(item => `• ${item.name} (${item.duration}) x${item.quantity} = $${item.price * item.quantity}`).join('\n');
+      const message = encodeURIComponent(
+`Hello NOLE SHOP, I would like to order:
+${itemsList}
+
+Total: $${totalCost}
+Payment Method: ${paymentConfig.name} - ${paymentConfig.network}
+Recipient Wallet: ${paymentConfig.address}
+TxID / Transfer Hash: ${txid || '(Will send after transfer)'}
+Delivery Email: ${email}
+Contact / Handle: ${handle}
+
+Please process the digital access delivery, thank you!`
+      );
+
+      window.open(`https://wa.me/?text=${message}`, '_blank');
+      closeCheckoutModal();
+      showToast("Opening WhatsApp with crypto payment details...");
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const msgEl = document.getElementById("toast-message");
+      if (!toast || !msgEl) return;
+
+      msgEl.textContent = message;
+      toast.classList.remove("translate-y-20", "opacity-0", "pointer-events-none");
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0", "pointer-events-none");
+      }, 2800);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProductGrid();
+      updateCartUi();
+      initHeaderScroll();
+
+      const cartTriggerBtn = document.getElementById("cart-trigger-btn");
+      if (cartTriggerBtn) {
+        cartTriggerBtn.addEventListener("click", () => toggleCartDrawer(true));
+      }
+
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+        mobileMenu.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+        });
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeProductModal();
+          toggleCartDrawer(false);
+          closeCheckoutModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
