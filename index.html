@@ -1472,9 +1472,9 @@
     ];
 
     // Google Sheets API Web App URL (Connected directly to your Google Sheets)
-    const DEFAULT_SHEET_API_URL = "https://script.google.com/macros/s/AKfycby3wYaexro7Dm7jHQ25BaE0PJbMgzwANKfEKie8EPsQFgDgIMjNbKvSNm48BdDyKUJyvQ/exec";
+    const DEFAULT_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyb1TWUXRm6fpD8cZgT-8FnQ2ls9wV4UAUeMQTIqktyur-hVlTRBzdZSuyXVUfsM_Gn/exec";
     let storedSheetUrl = localStorage.getItem("nole_sheet_api_url");
-    if (!storedSheetUrl || storedSheetUrl.includes("AKfycbw3AA4GTlnQYSS4F9iKxiChgdOyNyTsdzmErpdCgZH3IQWBaIA4eDUwR-za7N8z1rG80g")) {
+    if (!storedSheetUrl || storedSheetUrl !== DEFAULT_SHEET_API_URL) {
       storedSheetUrl = DEFAULT_SHEET_API_URL;
       localStorage.setItem("nole_sheet_api_url", DEFAULT_SHEET_API_URL);
     }
